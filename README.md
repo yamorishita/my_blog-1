@@ -71,3 +71,13 @@ $ rails g controller posts index show new create edit update destroy
       create      app/assets/stylesheets/posts.scss
 ```
 
+### Authorデータ作成
+
+```
+$ rails c
+irb(main):001:0> Author.create(name: 'sparta', description: 'hogehoge', image_url: 'http://www.nobodyeverdrownedinsweat.com/wp-content/uploads/2012/02/spartan-cam-logo1.png')
+   (0.1ms)  begin transaction
+  SQL (1.3ms)  INSERT INTO "authors" ("name", "description", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "sparta"], ["description", "hogehoge"], ["image_url", "http://www.nobodyeverdrownedinsweat.com/wp-content/uploads/2012/02/spartan-cam-logo1.png"], ["created_at", "2015-06-12 09:26:20.091677"], ["updated_at", "2015-06-12 09:26:20.091677"]]
+   (0.7ms)  commit transaction
+=> #<Author id: 1, name: "sparta", description: "hogehoge", image_url: "http://www.nobodyeverdrownedinsweat.com/wp-content...", created_at: "2015-06-12 09:26:20", updated_at: "2015-06-12 09:26:20">
+```
