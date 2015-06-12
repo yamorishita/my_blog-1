@@ -22,9 +22,8 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.new(post_params)
-    @post.update_attributes(post_params)
-    @post.save
+    @post = Post.find(params[:id])
+    @post.update(post_params)
     redirect_to "/posts/#{@post.id}"
   end
 
