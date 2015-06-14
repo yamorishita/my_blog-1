@@ -1,4 +1,4 @@
-<div class="col-lg-8">
+<div class="col-md-8">
   <% @posts.each do |post| %>
     <div class="article">
       <h2><%= post.title %></h2>
@@ -9,7 +9,7 @@
   <% end %>
 </div>
 
-<div class="col-lg-4">
+<div class="col-md-4">
   <div class="thumbnail">
     <img src="<%= Author.first.image_url %>" alt="著者イメージ">
     <div class="caption">
