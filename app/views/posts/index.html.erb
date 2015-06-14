@@ -2,19 +2,22 @@
   <% @posts.each do |post| %>
     <div class="article">
       <h2><%= post.title %></h2>
-      <p><%= post.created_at %></p>
+      <p><%= find_category_title(post.category_id) %> <%= post.created_at.strftime('%Y/%m/%d %H:%M') %></p>
       <p><%= truncate(post.body, length: 50) %></p>
-      <p><a class="btn btn-default" href="/posts/<%= post.id %>" role="button">続きを読む</a></p>
+      <p>
+        <%= link_to "続きを読む", post_path(post.id), class: 'btn btn-default' %>
+      </p>
     </div>
   <% end %>
 </div>
 
 <div class="col-md-4">
   <div class="thumbnail">
-    <img src="<%= Author.first.image_url %>" alt="著者イメージ">
+    <% author = Author.first %>
+    <img src="<%= author.image_url %>" alt="著者イメージ">
     <div class="caption">
-      <h3><%= Author.first.name %></h3>
-      <p><%= Author.first.description %></p>
+      <h3><%= author.name %></h3>
+      <p><%= author.description %></p>
     </div>
   </div>
 
